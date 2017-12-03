@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Ex_02
+{
+    public static void main(String[]args)
+    {
+        Scanner kb = new Scanner(System.in);
+
+        System.out.println("Enter your first word:");
+        String w1 = kb.next();
+        System.out.println("Enter your second word:");
+        String w2 = kb.next();
+        System.out.println("Enter your third word");
+        String w3 = kb.next();
+        kb.close();
+        //Here i have just taken user inputs for three words, after initating the scanner object and closing said scanner object
+        System.out.println("These are your three words centered:");
+        System.out.println(makeCenter(w1));
+        System.out.println(makeCenter(w2));
+        System.out.println(makeCenter(w3));
+        //above are the print statements containing the makeCenter method
+    }
+    public static String makeCenter(String w)
+    {
+        //this method takes a word, and if its greater than or equal to 20 characters, simply returns the word
+        if (w.length() >= 20) {
+            return w;
+            //if the word is less than 20 characters then it adds a space before and after the word in this 'else' clause, and returns the makeCenter method call with the new value for 'w', starting a recursive loop
+        } else {
+            return makeCenter(" " + w + " ");
+        }
+    }
+}
